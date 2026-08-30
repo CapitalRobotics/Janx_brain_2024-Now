@@ -1,14 +1,13 @@
-package org.mrpsvt.capital_robotics.teleop;
+package org.base_code;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.IMU;
 import com.seattlesolvers.solverslib.drivebase.MecanumDrive;
 import com.seattlesolvers.solverslib.hardware.RevIMU;
 
-import org.mrpsvt.capital_robotics.control.ControlMap;
-import org.mrpsvt.capital_robotics.robot_core.DriveBase;
-import org.mrpsvt.capital_robotics.robot_core.DriveConstants;
+import org.base_code.control.ControlMap;
+import org.base_code.robot_core.DriveBase;
+import org.base_code.robot_core.DriveConstants;
 
 import java.util.Objects;
 

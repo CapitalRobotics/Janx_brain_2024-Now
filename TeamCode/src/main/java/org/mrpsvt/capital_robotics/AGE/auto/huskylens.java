@@ -1,4 +1,4 @@
-package org.mrpsvt.capital_robotics.auto;
+package org.mrpsvt.capital_robotics.AGE.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;

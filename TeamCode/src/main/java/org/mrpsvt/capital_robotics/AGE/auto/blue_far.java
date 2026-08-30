@@ -1,4 +1,4 @@
-package org.mrpsvt.capital_robotics.auto;
+package org.mrpsvt.capital_robotics.AGE.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="red far")
-public class red_far extends LinearOpMode {
+@Autonomous(name="steev")
+public class blue_far extends LinearOpMode {
     // Flywheels
     private DcMotorEx flywheel;
     private DcMotorEx flywheel2;
@@ -87,16 +87,16 @@ public class red_far extends LinearOpMode {
 
         // Step 1: Close claw to grab preloaded game element
 
-
         // Step 2: Drive forward to position
+
         telemetry.addData("Step", "2: Driving forward");
         telemetry.update();
         driveDistance(-1, 0, 0, 1500);
-//-forwers +back weras
+        //-forwers +back weras
         telemetry.addData("Step", "2: Driving forward");
         telemetry.update();
-        driveDistance(0, 0, 1, 250);
-//+ to the rigth - to the lefft
+        driveDistance(0, 0, -1, 250);
+        //+ to the rigth - to the lefft
         // Step 3: Spin up flywheels
         telemetry.addData("Step", "3: Spinning up flywheels");
         telemetry.update();

@@ -1,4 +1,4 @@
-package org.mrpsvt.capital_robotics.auto;
+package org.mrpsvt.capital_robotics.AGE.auto;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import org.mrpsvt.capital_robotics.AGE.auto.huskylens;
 
 @Autonomous(name = "red_far_with_camera_test")
 public class red_far_with_camera_test extends LinearOpMode
@@ -102,7 +104,7 @@ public class red_far_with_camera_test extends LinearOpMode
         //+ to the rigth - to the lefft
 
         // step 2.5: finding x
-        huskylens thisLens = new huskylens();
+        org.mrpsvt.capital_robotics.AGE.auto.huskylens thisLens = new huskylens();
         thisLens.runOpMode();
         //
         //

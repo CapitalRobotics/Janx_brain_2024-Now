@@ -1,4 +1,4 @@
-package org.mrpsvt.capital_robotics.robot_core;
+package org.base_code.robot_core;
 import com.acmerobotics.dashboard.config.Config;
 
 @Config

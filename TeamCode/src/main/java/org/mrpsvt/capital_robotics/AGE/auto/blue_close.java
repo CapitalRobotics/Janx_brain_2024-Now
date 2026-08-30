@@ -1,4 +1,4 @@
-package org.mrpsvt.capital_robotics.auto;
+package org.mrpsvt.capital_robotics.AGE.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="blue far")
-public class red_close extends LinearOpMode {
+@Autonomous(name="blue close")
+public class blue_close extends LinearOpMode {
     // Flywheels
     private DcMotorEx flywheel;
     private DcMotorEx flywheel2;
@@ -21,16 +21,21 @@ public class red_close extends LinearOpMode {
 
     // Servos
     private Servo claw;
+    private Servo loop;
 
     // Constants
     private static final int TARGET_FLYWHEEL = 6000;
     private static final int RAMP_RATE = 900;
     private static final double CLAW_CLOSED = 1.0;
     private static final double CLAW_OPEN = 0.25;
+    private static final double loop_open = 0;
+    private static final double loop_closed= 5;
+
     private static final double LODEWHEEL_SPEED = 8;
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() throws InterruptedException
+    {
         // Initialize hardware
         initializeHardware();
 
@@ -40,13 +45,15 @@ public class red_close extends LinearOpMode {
 
         waitForStart();
 
-        if (opModeIsActive()) {
+        if (opModeIsActive())
+        {
             // Execute autonomous sequence
             autonomousSequence();
         }
     }
 
-    private void initializeHardware() {
+    private void initializeHardware()
+    {
         // Map flywheel motors
         flywheel = hardwareMap.get(DcMotorEx.class, "flywheel");
         flywheel2 = hardwareMap.get(DcMotorEx.class, "flywheel2");
@@ -82,16 +89,83 @@ public class red_close extends LinearOpMode {
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
-    private void autonomousSequence() throws InterruptedException {
+    private void autonomousSequence() throws InterruptedException
+    {
+        // Example autonomous sequence - customize as needed
+
+        // Step 1: Close claw to grab preloaded game element
+
+
         // Step 2: Drive forward to position
         telemetry.addData("Step", "2: Driving forward");
         telemetry.update();
-        driveDistance(.5, 0, 0, 900);
+        driveDistance(.5, 0, 0, 1700);
+        /*
         telemetry.addData("Step", "2: Driving forward");
         telemetry.update();
-        driveDistance(0, .1, 0, 100);
+        driveDistance(0, -.1, 0, 100);
+        */
 
 //+ to the rigth - to the lefft
+//        // Step 3: Spin up flywheels
+//        telemetry.addData("Step", "3: Spinning up flywheels");
+//        telemetry.update();
+//        Flywheelon();
+//        sleep(3000);
+//
+//        telemetry.addData("Step", "1: Closing claw");
+//        telemetry.update();
+//        setClaw(CLAW_OPEN);
+//        sleep(500);
+//
+//        telemetry.addData("Step", "1: Closing claw");
+//        telemetry.update();
+//        setClaw(CLAW_CLOSED);
+//        sleep(500);
+//        // Step 4: Run lodewheel to push ball into flywheels and launch
+//        telemetry.addData("Step", "4: Pushing ball and launching");
+//        telemetry.update();
+//        lodewheel.setVelocity(LODEWHEEL_SPEED);
+//        sleep(2000);
+//        lodewheel.setVelocity(0);
+//
+//        telemetry.addData("Step", "1: Closing claw");
+//        telemetry.update();
+//        setClaw(CLAW_OPEN);
+//        sleep(500);
+//
+//        telemetry.addData("Step", "1: Closing claw");
+//        telemetry.update();
+//        setClaw(CLAW_CLOSED);
+//        sleep(500);
+
+//        telemetry.addData("Step", "1: Closing loop");
+//        telemetry.update();
+//        setloop(loop_closed);
+//        sleep(500);
+//
+//        telemetry.addData("Step", "1: Closing loop");
+//        telemetry.update();
+//        setloop(loop_open);
+//        sleep(500);
+
+//        telemetry.addData("Step", "1: Closing claw");
+//        telemetry.update();
+//        setClaw(CLAW_OPEN);
+//        sleep(500);
+
+//        // Step 5: Spin down flywheels
+//        telemetry.addData("Step", "5: Spinning down");
+//        telemetry.update();
+//        Flywheeloff();
+//        sleep(3000);
+
+        /*
+        telemetry.addData("Step", "6: Strafing right");
+        telemetry.update();
+        driveDistance(0, 1.5, 0, 700);
+        */
+
         telemetry.addData("Status", "Autonomous Complete");
         telemetry.update();
     }
@@ -130,32 +204,20 @@ public class red_close extends LinearOpMode {
         backLeft.setPower(0);
         backRight.setPower(0);
     }
-
-    private void rampFlywheels(int targetVelocity, long rampTimeMs) {
-        long startTime = System.currentTimeMillis();
-        double currentVelocity = flywheel.getVelocity();
-
-        while (System.currentTimeMillis() - startTime < rampTimeMs && opModeIsActive()) {
-            double progress = (double)(System.currentTimeMillis() - startTime) / rampTimeMs;
-            double velocity = currentVelocity + (targetVelocity - currentVelocity) * progress;
-
-            flywheel.setVelocity(velocity);
-            flywheel2.setVelocity(velocity);
-
-            telemetry.addData("Flywheel Target", targetVelocity);
-            telemetry.addData("Flywheel Current", velocity);
-            telemetry.addData("Flywheel1 Actual", flywheel.getVelocity());
-            telemetry.addData("Flywheel2 Actual", flywheel2.getVelocity());
-            telemetry.update();
-
-            sleep(50);
-        }
-
-        flywheel.setVelocity(targetVelocity);
-        flywheel2.setVelocity(targetVelocity);
+    private void Flywheelon(){
+        flywheel.setVelocity(TARGET_FLYWHEEL);
+        flywheel2.setVelocity(TARGET_FLYWHEEL);
+        telemetry.addData("flywheel","on at"+TARGET_FLYWHEEL );
+        telemetry.update();
     }
-
+    private void Flywheeloff (){
+        flywheel.setVelocity(0);
+        flywheel2.setVelocity(0);
+        telemetry.addData("flywheel","off");
+        telemetry.update();
+    }
     private void setClaw(double position) {
         claw.setPosition(position);
     }
+    private void setloop (double position){loop.setPosition(position);}
 }
