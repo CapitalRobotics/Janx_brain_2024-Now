@@ -1,12 +1,13 @@
 package org.mrpsvt.capital_robotics.AGE.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="steev")
+@Disabled//(name="steev")
 public class blue_far extends LinearOpMode {
     // Flywheels
     private DcMotorEx flywheel;

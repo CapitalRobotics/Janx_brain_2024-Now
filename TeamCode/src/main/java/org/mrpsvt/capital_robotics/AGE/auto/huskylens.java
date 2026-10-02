@@ -1,11 +1,12 @@
 package org.mrpsvt.capital_robotics.AGE.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.hardware.dfrobot.HuskyLens;
 
-@Autonomous(name="HuskyLens AprilTag Movement")
+@Disabled//(name="HuskyLens AprilTag Movement")
 public class huskylens extends LinearOpMode {
 
     private DcMotor leftFront;

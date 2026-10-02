@@ -2,6 +2,7 @@ package org.mrpsvt.capital_robotics.AGE.auto;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -10,7 +11,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.mrpsvt.capital_robotics.AGE.auto.huskylens;
 
-@Autonomous(name = "red_far_with_camera_test")
+@Disabled//(name = "red_far_with_camera_test")
 public class red_far_with_camera_test extends LinearOpMode
 {
     // Flywheels

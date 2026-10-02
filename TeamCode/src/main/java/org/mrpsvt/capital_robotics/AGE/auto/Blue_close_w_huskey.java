@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "Blue_close_w_huskey")
+@Disabled//(name = "Blue_close_w_huskey")
 public class Blue_close_w_huskey extends LinearOpMode
 {
     // Flywheels

@@ -6,14 +6,14 @@ public class DriveConstants {
     public static String ROBOT_CENTRIC = "robot_centric";
     public static String FIELD_CENTRIC = "field_centric";
 
-    public float strafeSpeed = 0.5f;
-    public float forwardSpeed = 0.5f;
-    public float turnSpeed = 0.5f;
+    public static float strafeSpeed = 0.5f;
+    public static float forwardSpeed = 0.5f;
+    public static float turnSpeed = 0.5f;
 
-    public final String frontLeftMotorName = "fl";
-    public final String frontRightMotorName = "fr";
-    public final String backLeftMotorName = "bl";
-    public final String backRightMotorName = "br";
+    public static String frontLeftMotorName = "fl";
+    public static String frontRightMotorName = "fr";
+    public static String backLeftMotorName = "bl";
+    public static String backRightMotorName = "br";
 
-    public final String robotDriveMode = ROBOT_CENTRIC;
+    public static String robotDriveMode = ROBOT_CENTRIC;
 }

@@ -1,6 +1,7 @@
 package org.mrpsvt.capital_robotics.AGE.teleop;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,13 +10,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.seattlesolvers.solverslib.drivebase.MecanumDrive;
 import com.seattlesolvers.solverslib.hardware.RevIMU;
 
-import org.mrpsvt.capital_robotics.control.ControlMap;
+import org.base_code.control.ControlMap;
 import org.base_code.robot_core.DriveBase;
 import org.base_code.robot_core.DriveConstants;
 
 import java.util.Objects;
 
-@TeleOp(name="w_lode")
+@Disabled//(name="w_lode")
 public class full_bot_w_load extends OpMode {
     // Flywheels
     private DcMotorEx flywheel;
@@ -52,7 +53,7 @@ public class full_bot_w_load extends OpMode {
     private ControlMap controls;
     private MecanumDrive drive;
     private DriveConstants driveConstants;
-    private RevIMU imu;
+   // private RevIMU imu;
 
     @Override
     public void init() {
@@ -79,7 +80,7 @@ public class full_bot_w_load extends OpMode {
         DriveBase driveBase = new DriveBase(hardwareMap);
         controls = new ControlMap(gamepad1, gamepad2);
         drive = driveBase.mecanum;
-        imu = driveBase.imu;
+        //imu = driveBase.imu;
         driveConstants = new DriveConstants();
 
         telemetry.addData("Status", "Initialized");
@@ -108,14 +109,14 @@ public class full_bot_w_load extends OpMode {
                     controls.driver1.getLeftY() * -strafeSpeed,
                     controls.driver1.getRightX() * turnSpeed
             );
-        } else if (Objects.equals(driveConstants.robotDriveMode, DriveConstants.FIELD_CENTRIC)) {
-            drive.driveFieldCentric(
-                    controls.driver1.getLeftY() * forwardSpeed,
-                    controls.driver1.getLeftX() * strafeSpeed,
-                    controls.driver1.getRightX() * turnSpeed,
-                    imu.getRotation2d().getDegrees()
-            );
-        }
+//        } else if (Objects.equals(driveConstants.robotDriveMode, DriveConstants.FIELD_CENTRIC)) {
+//            drive.driveFieldCentric(
+//                    controls.driver1.getLeftY() * forwardSpeed,
+//                    controls.driver1.getLeftX() * strafeSpeed,
+//                    controls.driver1.getRightX() * turnSpeed,
+//                    imu.getRotation2d().getDegrees()
+//            );
+//        }
 
         // Flywheel control:
         // Verison with ramping (Gamepad 2, button: A)
@@ -188,4 +189,5 @@ public class full_bot_w_load extends OpMode {
         telemetry.addData("Claw Position", "%.2f", claw.getPosition());
         telemetry.update();
     }
+}
 }
