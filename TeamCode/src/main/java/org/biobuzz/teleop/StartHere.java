@@ -25,7 +25,7 @@ public class StartHere extends OpMode {
     private MecanumDrive drive;
     private RevIMU imu; // Assuming you have an IMU class for field-centric driving
     private DcMotorEx lodewheel;
-    private double bob = 6000;
+    private double bob = 9000;
     private Servo claw;
     private static final double CLAW_CLOSED = 1;
     private static final double CLAW_OPEN = 0.1;
