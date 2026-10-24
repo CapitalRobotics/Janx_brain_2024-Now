@@ -38,9 +38,7 @@ public class StartHere extends OpMode {
     private static final int RAMP_RATE_b = 900;
     private double currentFlywheelVelocity_b = 0;
 
-    public StartHere(Servo claw) {
-        this.claw = claw;
-    }
+
 
 
     @Override
