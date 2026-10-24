@@ -12,13 +12,13 @@ public class DriveBase
     private Motor frontLeft, frontRight, backLeft, backRight;
 
     public final MecanumDrive mecanum;
-    public final IMU imu;
+    //public final IMU imu;
 
     public DriveBase(HardwareMap hardwareMap)
     {
         this.hardwareMap = hardwareMap;
         this.mecanum = initDriveBase();
-        this.imu = initIMU();
+
     }
 
     private MecanumDrive initDriveBase()
@@ -41,23 +41,23 @@ public class DriveBase
         return new MecanumDrive(frontLeft, frontRight, backLeft, backRight);
     }
 
-    private IMU initIMU()
-    {
-        IMU imu = hardwareMap.get(IMU.class, "imu");
-
-        // Change these to match how your Control Hub is mounted
-        IMU.Parameters params = new IMU.Parameters(
-                new RevHubOrientationOnRobot(
-                        RevHubOrientationOnRobot.LogoFacingDirection.UP,
-                        RevHubOrientationOnRobot.UsbFacingDirection.FORWARD));
-
-        imu.initialize(params);
-        return imu;
-    }
+//    private IMU initIMU()
+//    {
+//        IMU imu = hardwareMap.get(IMU.class, "imu");
+//
+//        // Change these to match how your Control Hub is mounted
+//        IMU.Parameters params = new IMU.Parameters(
+//                new RevHubOrientationOnRobot(
+//                        RevHubOrientationOnRobot.LogoFacingDirection.UP,
+//                        RevHubOrientationOnRobot.UsbFacingDirection.FORWARD));
+//
+//        imu.initialize(params);
+//        return imu;
+//    }
 
     /** Heading in degrees, handy for mecanum.driveFieldCentric(...) */
-    public double getHeadingDegrees()
-    {
-        return imu.getRobotYawPitchRollAngles().getYaw(org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGREES);
-    }
+//    public double getHeadingDegrees()
+//    {
+//        return imu.getRobotYawPitchRollAngles().getYaw(org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGREES);
+//    }
 }
