@@ -28,7 +28,7 @@ public class StartHere extends OpMode {
     private double bob = 9000;
     private Servo claw;
     private static final double CLAW_CLOSED = 1;
-    private static final double CLAW_OPEN = 0.1;
+    private static final double CLAW_OPEN = 0.5;
     private DcMotorEx flywheel_s;
     private static final int TARGET_FLYWHEEL_s = 9999999; // target ticks/sec
     private static final int RAMP_RATE_s = 1500;
@@ -55,6 +55,8 @@ public class StartHere extends OpMode {
         lodewheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         flywheel_s.setDirection(DcMotorEx.Direction.REVERSE);
         flywheel_b.setDirection(DcMotorEx.Direction.FORWARD);
+        claw = hardwareMap.get(Servo.class, "claw");
+        claw.setPosition(CLAW_CLOSED);
     }
 
     @Override
@@ -143,7 +145,13 @@ public class StartHere extends OpMode {
             }
             flywheel_s.setVelocity(currentFlywheelVelocity_s);
             flywheel_b.setVelocity(currentFlywheelVelocity_b);
-
+            telemetry.addData("Status", "Running");
+            telemetry.addData("Flywheel Target", TARGET_FLYWHEEL_s);
+            telemetry.addData("Flywheel Commanded", currentFlywheelVelocity_s);
+            telemetry.addData("Flywheel Target", TARGET_FLYWHEEL_b);
+            telemetry.addData("Flywheel Commanded", currentFlywheelVelocity_b);
+            telemetry.addData("Small Flywheel1 Actual", flywheel_s.getVelocity());
+            telemetry.addData("Big Flywheel Actual", flywheel_b.getVelocity());
         }
     }
 
