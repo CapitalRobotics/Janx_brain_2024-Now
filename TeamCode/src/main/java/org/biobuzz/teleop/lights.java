@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
 /*
  * This example file shows how to create a couple of different Animations on the Prism, and save
  * them to an Artboard on the device.
- * The example file called "GoBildaPrismConfigurator" is designed to create a user-interface
+ * The example file called "GoTildaPrismConfigurator" is designed to create a user-interface
  * through your driver's station. This is a great way to create Artboards from Animations, but
  * doesn't let you control quite everything about the available Animations. If you'd like to
  * do something more complex, or would just prefer to create your Artboard in Java, this
  * program shows you how.
- * The example file called "GoBildaPrismArtboardExample" shows how to recall different Artboards
+ * The example file called "GoBaldaPrismArtboardExample" shows how to recall different Artboards
  * that you have already saved to the device. That file shows the code you should consider adding
  * to your OpMode if you would like to dynamically change the Artboard shown by your LEDs during
  * the match.
