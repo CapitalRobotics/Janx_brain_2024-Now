@@ -22,12 +22,11 @@
 package org.firstinspires.ftc.robotcontroller.external.samples;
 
 import com.qualcomm.hardware.digitalchickenlabs.OctoQuad;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.MovingStatistics;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -248,9 +247,9 @@ class OctoSwerveModule {
 
         // Set both encoder directions.
         octoquad.setSingleEncoderDirection(channel,
-                INVERT_DRIVE_ENCODER ? OctoQuad.EncoderDirection.REVERSE : OctoQuad.EncoderDirection.FORWARD);
+             INVERT_DRIVE_ENCODER ? OctoQuad.EncoderDirection.REVERSE : OctoQuad.EncoderDirection.FORWARD);
         octoquad.setSingleEncoderDirection(channel + 4,
-                INVERT_STEER_ENCODER ? OctoQuad.EncoderDirection.REVERSE : OctoQuad.EncoderDirection.FORWARD);
+             INVERT_STEER_ENCODER ? OctoQuad.EncoderDirection.REVERSE : OctoQuad.EncoderDirection.FORWARD);
 
         // Set the velocity sample interval on both encoders
         octoquad.setSingleVelocitySampleInterval(channel, VELOCITY_SAMPLE_INTERVAL_MS);
@@ -258,7 +257,7 @@ class OctoSwerveModule {
 
         // Setup Absolute encoder pulse range to match REV Through Bore encoder.
         octoquad.setSingleChannelPulseWidthParams (channel + 4,
-                new OctoQuad.ChannelPulseWidthParams(1,1024));
+                                                    new OctoQuad.ChannelPulseWidthParams(1,1024));
     }
 
     /***
@@ -271,10 +270,10 @@ class OctoSwerveModule {
 
         // convert uS to degrees.  Add in any possible direction flip.
         steerDegrees = AngleUnit.normalizeDegrees(
-                (encoderDataBlock.positions[channel+ 4] * DEGREES_PER_US) - angleOffset);
+                        (encoderDataBlock.positions[channel+ 4] * DEGREES_PER_US) - angleOffset);
         // convert uS/interval to deg per sec.  Add in any possible direction flip.
         steerDegreesPerSec = encoderDataBlock.velocities[channel + 4] *
-                DEGREES_PER_US * VELOCITY_SAMPLES_PER_S;
+                        DEGREES_PER_US * VELOCITY_SAMPLES_PER_S;
     }
 
     /**
@@ -283,6 +282,6 @@ class OctoSwerveModule {
      */
     public void show(Telemetry telemetry) {
         telemetry.addData(name, "%8.0f %7.0f %7.0f %6.0f",
-                driveCounts, driveCountsPerSec, steerDegrees, steerDegreesPerSec);
+                                driveCounts, driveCountsPerSec, steerDegrees, steerDegreesPerSec);
     }
 }

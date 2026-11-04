@@ -34,6 +34,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.externalhardware.RobotHardware;
+
 /*
  * This OpMode illustrates how to use an external "hardware" class to modularize all the robot's sensors and actuators.
  * This approach is very efficient because the same hardware class can be used by all of your teleop and autonomous OpModes
@@ -70,7 +72,7 @@ public class ConceptExternalHardwareClass extends LinearOpMode {
 
     // Create a RobotHardware object to be used to access robot hardware.
     // Prefix any hardware functions with "robot." to access this class.
-    RobotHardware   robot       = new RobotHardware(this);
+    RobotHardware robot       = new RobotHardware(this);
 
     @Override
     public void runOpMode() {
